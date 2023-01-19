@@ -22,17 +22,17 @@ struct AddView: View {
                 TextField("Type something here ...", text: $textFieldText )
                     .padding(.horizontal)
                     .frame(height: 55)
-                    .background(Color.gray)
-                .cornerRadius(20)
+                    .background(Color(UIColor.secondarySystemBackground))
+                .cornerRadius(15)
                 
                 Button(action:saveButtonPressed , label: {
                     Text("Save".uppercased())
                         .foregroundColor(.white)
                         .font(.headline)
-                        .frame(height: 55)
-                        .frame(maxWidth: .infinity)
+                        .frame(height: 50)
+                        .frame(minWidth: 340)
                         .background(Color.accentColor)
-                        .cornerRadius(11)
+                        .cornerRadius(30)
                 })
             }
           
@@ -69,10 +69,19 @@ struct AddView: View {
 
 struct AddView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView{
-            AddView()
+        Group{
+            NavigationView{
+                AddView()
+            }
+            .preferredColorScheme(.light)
+            .environmentObject(ListViewModel())
+            NavigationView{
+                AddView()
+            }
+            .preferredColorScheme(.dark)
+            .environmentObject(ListViewModel())
+            }
         }
-        .environmentObject(ListViewModel())
-    }
+  
 }
  
