@@ -32,7 +32,7 @@ struct NoItemsView: View {
                 })
                 .padding(.horizontal, animate ? 30 : 50)
                 .shadow(
-                    color: animate ? secondaryAccentColor.opacity(0.7) : Color.accentColor.opacity(0.7),
+                    color: animate ? secondaryAccentColor.opacity(2) : Color.accentColor.opacity(2),
                     radius: animate ? 30 : 10,
                     x: 0,
                     y: animate ? 55 : 30 )
